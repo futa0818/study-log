@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>ログID: {{ log_id }}</h2>
+    <p>タイトル: {{ log.title }}</p>
+    <p>本文: {{ log.body }}</p>
+    <p>カテゴリ: {{ log.category }}</p>
+    <p>学習時間: {{ log.study_time }}</p>
+{% endblock %}

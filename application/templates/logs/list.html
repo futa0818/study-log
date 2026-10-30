@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>学習ログ一覧</h2>
+
+    {% if logs %}
+        <ul>
+        {% for log in logs %}
+            <li>
+                <p>{{ log.title }}<p>
+            </li>
+            <a href="{{ url_for('logs_detail', log_id=log.id) }}">詳細</a>
+        {% endfor %}
+        </ul>
+    
+    {% else %}
+        <p>まだ学習ログが投稿されていません。最初のログを書いてみましょう！</p>
+    {% endif %}
+
+{% endblock %}
