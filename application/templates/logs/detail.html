@@ -1,9 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>ログID: {{ log_id }}</h2>
-    <p>タイトル: {{ log.title }}</p>
-    <p>本文: {{ log.body }}</p>
-    <p>カテゴリ: {{ log.category }}</p>
-    <p>学習時間: {{ log.study_time }}</p>
+<div class="card detail-card">
+    <div class="detail-header">
+        <h2>学習ログ詳細</h2>
+        <span class="log-id-badge">ID: {{ log_id }}</span>
+    </div>
+
+    <div class="detail-content">
+        <div class="detail-item">
+            <span class="detail-label">タイトル</span>
+            <p class="detail-value title-text">{{ log.title }}</p>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">カテゴリ</span>
+            <p class="detail-value"><span class="category-tag">{{ log.category }}</span></p>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">学習時間</span>
+            <p class="detail-value time-text">{{ log.study_time }}</p>
+        </div>
+
+        <div class="detail-item">
+            <span class="detail-label">本文</span>
+            <div class="detail-value body-text">{{ log.body }}</div>
+        </div>
+    </div>
+
+    <div class="detail-actions">
+        <a href="/logs" class="btn-back">一覧に戻る</a>
+    </div>
+</div>
 {% endblock %}

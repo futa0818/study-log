@@ -1,0 +1,346 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   全体設定 / リセット
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f4f7f9; /* 目に優しい少し明るいグレー */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   ヘッダーデザイン
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ロゴ領域 */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #1a365d; /* ネイビーカラー */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* ロゴ画像のサイズ調整 */
+.logo img {
+    height: 40px; /* 必要に応じて高さを変更してください */
+    width: auto;
+    object-fit: contain;
+}
+
+/* ナビゲーション */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    color: #2b6cb0;
+    background-color: #ebf8ff;
+}
+
+/* ==========================================================================
+   メインコンテンツ表示領域
+   ========================================================================== */
+main {
+    flex: 1;
+    max-width: 1100px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 24px;
+}
+
+/* コンテンツカード用共通CSS（各ページ内のコンテンツを囲む際に活用できます） */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   学習ログ一覧ページ用スタイル
+   ========================================================================== */
+
+/* ページ見出し */
+.card h2 {
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+/* ログリストのコンテナ */
+.log-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 個別のログアイテム */
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    transition: all 0.2s ease;
+}
+
+.log-item:hover {
+    background-color: #edf2f7;
+    border-color: #cbd5e0;
+}
+
+/* ログのタイトル */
+.log-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+/* 詳細ボタン */
+.btn-detail {
+    text-decoration: none;
+    background-color: #3182ce;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-detail:hover {
+    background-color: #2b6cb0;
+}
+
+/* ログが一件もないときのメッセージ */
+.empty-state {
+    text-align: center;
+    padding: 30px 0;
+    color: #718096;
+}
+
+/* ==========================================================================
+   学習ログ詳細ページ用スタイル
+   ========================================================================== */
+
+/* ヘッダー部分（見出しとIDバッジ） */
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.detail-header h2 {
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin: 0;
+}
+
+/* IDバッジ */
+.log-id-badge {
+    background-color: #edf2f7;
+    color: #4a5568;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* 詳細コンテンツ全体のレイアウト */
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 各項目のブロック */
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* 項目名（ラベル） */
+.detail-label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* 値のスタイル */
+.detail-value {
+    font-size: 1rem;
+    color: #2d3748;
+}
+
+/* タイトルを少し大きく強調 */
+.title-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1a365d;
+}
+
+/* カテゴリタグ風デザイン */
+.category-tag {
+    display: inline-block;
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 学習時間を強調 */
+.time-text {
+    font-weight: 600;
+    color: #2f855a; /* 落ち着いた緑色で時間を表現 */
+}
+
+/* 本文エリア（改行を反映しやすく、背景を敷くデザイン） */
+.body-text {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    white-space: pre-wrap; /* 改行コードをそのまま反映させる */
+    line-height: 1.7;
+}
+
+/* 一覧に戻るボタンエリア */
+.detail-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #edf2f7;
+}
+
+/* 戻るボタン */
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-back:hover {
+    background-color: #cbd5e0;
+    color: #2d3748;
+}
+
+/* ==========================================================================
+   スマホ対応（レスポンシブ）
+   ========================================================================== */
+/* ==========================================================================
+   スマホ対応（レスポンシブ）
+   ========================================================================== */
+/* ==========================================================================
+   スマホ対応（レスポンシブ）
+   ========================================================================== */
+@media (max-width: 600px) {
+    /* ─── 既存の設定（変更していません） ─── */
+    .header-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+    }
+
+    /* ─── カード共通のスマホ調整 ─── */
+    .card {
+        padding: 16px;
+    }
+
+    /* ─── 学習ログ一覧ページ用のスマホ調整を追加 ─── */
+    .log-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .btn-detail {
+        width: 100%; /* スマホではボタンを横幅いっぱいにして押しやすくする */
+        text-align: center;
+    }
+
+    /* ─── 詳細ページ用のスマホ調整 ─── */
+    .detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .title-text {
+        font-size: 1.1rem;
+    }
+
+    .body-text {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}

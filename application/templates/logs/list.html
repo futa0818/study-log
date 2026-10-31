@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="card">
     <h2>学習ログ一覧</h2>
 
     {% if logs %}
-        <ul>
+        <ul class="log-list">
         {% for log in logs %}
-            <li>
-                <p>{{ log.title }}<p>
+            <li class="log-item">
+                <span class="log-title">{{ log.title }}</span>
+                <a href="{{ url_for('logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
             </li>
-            <a href="{{ url_for('logs_detail', log_id=log.id) }}">詳細</a>
         {% endfor %}
         </ul>
-    
     {% else %}
-        <p>まだ学習ログが投稿されていません。最初のログを書いてみましょう！</p>
+        <div class="empty-state">
+            <p>まだ学習ログが投稿されていません。最初のログを書いてみましょう！</p>
+        </div>
     {% endif %}
-
+</div>
 {% endblock %}
