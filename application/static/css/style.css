@@ -329,8 +329,8 @@ main {
     gap: 8px;
 }
 
-
 @media (max-width: 600px) {
+    /* ─── ヘッダー・ナビゲーションのスマホ対応 ─── */
     .header-container {
         flex-direction: column;
         gap: 12px;
@@ -346,21 +346,37 @@ main {
         padding: 4px 8px;
     }
 
+    /* ─── カード全体のスマホ対応 ─── */
     .card {
         padding: 16px;
     }
 
+    /* ─── 学習ログ一覧（リスト）のスマホ対応 ─── */
     .log-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
+    }
+
+    /* スマホではログ情報（バッジとタイトル）を縦、または自然に折り返すようにする */
+    .log-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .log-title {
+        font-size: 0.95rem;
+        word-break: break-all; /* 長いタイトルがはみ出さないようにする */
     }
 
     .btn-detail {
-        width: 100%;
+        width: 100%; /* スマホではボタンを横幅いっぱいに広げて押しやすくする */
         text-align: center;
     }
 
+    /* ─── ログ詳細ページのスマホ対応 ─── */
     .detail-header {
         flex-direction: column;
         align-items: flex-start;
@@ -369,10 +385,12 @@ main {
 
     .title-text {
         font-size: 1.1rem;
+        word-break: break-all;
     }
 
     .body-text {
         padding: 12px;
         font-size: 0.95rem;
+        word-break: break-all;
     }
 }
