@@ -329,6 +329,186 @@ main {
     gap: 8px;
 }
 
+/* ─── ミニマルフォームスタイル ─── */
+.form-card-minimal {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    padding: 36px;
+}
+
+.form-header-minimal {
+    margin-bottom: 28px;
+}
+
+.form-header-minimal h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #111827;
+    border-bottom: none;
+    margin-bottom: 4px;
+    padding-bottom: 0;
+}
+
+.form-header-minimal p {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.log-form-minimal {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.field-row-minimal {
+    display: flex;
+    gap: 16px;
+}
+
+.field-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4b5563;
+    letter-spacing: 0.03em;
+}
+
+.input-minimal {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    background-color: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.input-minimal:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #111827;
+    box-shadow: 0 0 0 1px #111827;
+}
+
+.textarea-minimal {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
+.form-actions-minimal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.btn-submit-minimal {
+    background-color: #111827;
+    color: #ffffff;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-submit-minimal:hover {
+    background-color: #374151;
+}
+
+.btn-cancel-minimal {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 4px;
+    transition: color 0.15s ease;
+}
+
+.btn-cancel-minimal:hover {
+    color: #111827;
+}
+
+/* ─── 一覧ページの日付・時間レイアウト調整 ─── */
+.log-actions-pc {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.log-date-text {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.log-meta-mobile {
+    display: none; /* PCでは非表示 */
+}
+
+.log-title-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── 詳細ページのデザイン調整（不要な線を消す） ─── */
+.detail-header-clean {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 0;
+    border-bottom: none; /* 短い二重線を解消 */
+}
+
+.detail-header-clean h2 {
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin: 0;
+    border-bottom: none;
+}
+
+.log-date-badge {
+    background-color: #edf2f7;
+    color: #4a5568;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.detail-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pc-only {
+    display: inline-block;
+}
+
+.mobile-only {
+    display: none;
+}
+
 @media (max-width: 600px) {
     /* ─── ヘッダー・ナビゲーションのスマホ対応 ─── */
     .header-container {
@@ -392,5 +572,68 @@ main {
         padding: 12px;
         font-size: 0.95rem;
         word-break: break-all;
+    }
+    .form-card-minimal {
+        padding: 20px;
+    }
+
+    .field-row-minimal {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .form-actions-minimal {
+        flex-direction: column-reverse;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .btn-submit-minimal,
+    .btn-cancel-minimal {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .btn-cancel-minimal {
+        background-color: #f3f4f6;
+        border-radius: 4px;
+    }
+    /* 一覧のスマホ対応 */
+    .log-actions-pc {
+        display: none; /* PC用の右側エリアを非表示 */
+    }
+
+    .log-meta-mobile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 4px;
+    }
+
+    .log-item {
+        flex-direction: row; /* 横並びを維持しつつ調整 */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .log-info {
+        flex: 1;
+        align-items: flex-start;
+    }
+
+    /* 詳細のスマホ対応：IDを消してタイトルの右端に日付 */
+    .pc-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+    }
+
+    .detail-header-clean {
+        margin-bottom: 16px;
     }
 }

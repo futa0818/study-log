@@ -7,13 +7,35 @@
     {% if logs %}
         <ul class="log-list">
         {% for log in logs %}
-            <!-- カテゴリに応じたクラスを付与 (例: category-Flask, category-HTML など) -->
             <li class="log-item category-{{ log.category | lower }}">
                 <div class="log-info">
                     <span class="log-category-badge">{{ log.category }}</span>
-                    <span class="log-title">{{ log.title }}</span>
+                    <div class="log-title-wrapper">
+                        <span class="log-title">{{ log.title }}</span>
+                        <!-- スマホ画面用：タイトルの右端・詳細ボタンの上に配置される日付 -->
+                        <div class="log-meta-mobile">
+                            <span class="log-date-text">
+                                {% if log.study_date %}
+                                    ({{ log.study_date }})
+                                {% else %}
+                                    nothing
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <a href="{{ url_for('logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
+                
+                <!-- PC画面用：「詳細を見る」ボタンのすぐ左に配置される日付 -->
+                <div class="log-actions-pc">
+                    <span class="log-date-text">
+                        {% if log.study_date %}
+                            ({{ log.study_date }})
+                        {% else %}
+                            nothing
+                        {% endif %}
+                    </span>
+                    <a href="{{ url_for('logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
+                </div>
             </li>
         {% endfor %}
         </ul>

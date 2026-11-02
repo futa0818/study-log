@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card form-card-minimal">
+    <div class="form-header-minimal">
+        <h2>New Log</h2>
+        <p>学習の記録を残しましょう</p>
+    </div>
+
+    <form action="/logs/new" method="POST" class="log-form-minimal">
+        <div class="field-group">
+            <label for="title">タイトル</label>
+            <input type="text" id="title" name="title" class="input-minimal" placeholder="例: Python基礎の復習" required>
+        </div>
+
+        <div class="field-row-minimal">
+            <div class="field-group">
+                <label for="category">カテゴリ</label>
+                <select id="category" name="category" class="input-minimal" required>
+                    <option value="" disabled selected>選択</option>
+                    <option value="Flask">Flask</option>
+                    <option value="HTML">HTML</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="CSS">CSS</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label for="study_time">学習時間 (分)</label>
+                <!-- 5分刻みで入力できるように step="5" を設定 -->
+                <input type="number" id="study_time" name="study_time" class="input-minimal" step="5" min="0" placeholder="例: 60" required>
+            </div>
+
+            <div class="field-group">
+                <label for="study_date">学習日</label>
+                <input type="date" id="study_date" name="study_date" class="input-minimal" required>
+            </div>
+        </div>
+
+        <div class="field-group">
+            <label for="body">本文</label>
+            <textarea id="body" name="body" class="input-minimal textarea-minimal" rows="6" placeholder="学んだことや気付きを入力..." required></textarea>
+        </div>
+
+        <div class="form-actions-minimal">
+            <a href="/logs" class="btn-cancel-minimal">戻る</a>
+            <button type="submit" class="btn-submit-minimal">追加する</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

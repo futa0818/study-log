@@ -7,7 +7,8 @@ logs = [
         "title": "Flaskのルーティングを学習",
         "body": "URLとビュー関数の関係を理解した。",
         "category": "Flask",
-        "study_time": 60
+        "study_time": 60,
+        "study_date": "2026/5/28"
     },
     {
         "id": 2,
@@ -71,6 +72,11 @@ def logs_detail(log_id):
         if log["id"] == log_id:
             target_log = log
     return render_template('logs/detail.html', log_id=log_id, log=target_log)
+
+@app.route('/logs/new')
+def logs_new():
+    return render_template('logs/form.html')
+
 
 @app.errorhandler(404)
 def page_not_found(e):
