@@ -246,6 +246,90 @@ main {
     color: #2d3748;
 }
 
+/* 1. Flaskカテゴリの場合 */
+.log-item.category-flask {
+    border-left: 5px solid #318fce;
+}
+.card.detail-card.category-flask {
+    border-top: 5px solid #318fce;
+}
+.category-flask .category-tag,
+.category-flask .log-category-badge {
+    background-color: #ebfaff;
+    color: #318fce;
+}
+
+/* 2. HTMLカテゴリの場合 */
+.log-item.category-html {
+    border-left: 5px solid #dd2020;
+}
+.card.detail-card.category-html {
+    border-top: 5px solid #dd2020;
+}
+.category-html .category-tag,
+.category-html .log-category-badge {
+    background-color: #fff0f0;
+    color: #dd2020;
+}
+
+/* 3. JavaScriptカテゴリの場合 */
+.log-item.category-javascript {
+    border-left: 5px solid #ddba20;
+}
+.card.detail-card.category-javascript {
+    border-top: 5px solid #ddba20;
+}
+.category-javascript .category-tag,
+.category-javascript .log-category-badge {
+    background-color: #fffdf0;
+    color: #ddba20;
+}
+
+/* 4. Pythonカテゴリの場合 */
+.log-item.category-python {
+    border-left: 5px solid #3134ce;
+}
+.card.detail-card.category-python {
+    border-top: 5px solid #3134ce;
+}
+.category-python .category-tag,
+.category-python .log-category-badge {
+    background-color: #f0f4ff;
+    color: #3134ce;
+}
+
+/* 5. Pythonカテゴリの場合 */
+.log-item.category-css {
+    border-left: 5px solid #8231ce;
+}
+.card.detail-card.category-css {
+    border-top: 5px solid #8231ce;
+}
+.category-css .category-tag,
+.category-css .log-category-badge {
+    background-color: #f6f0ff;
+    color: #8231ce;
+}
+
+.log-item {
+    border-left: 5px solid #718096;
+}
+.log-category-badge {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.log-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
 @media (max-width: 600px) {
     .header-container {
         flex-direction: column;

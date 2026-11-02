@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card detail-card">
+<!-- card に category-{{ log.category | lower }} を追加 -->
+<div class="card detail-card category-{{ log.category | lower }}">
     <div class="detail-header">
         <h2>学習ログ詳細</h2>
         <span class="log-id-badge">ID: {{ log_id }}</span>
@@ -20,7 +21,7 @@
 
         <div class="detail-item">
             <span class="detail-label">学習時間</span>
-            <p class="detail-value time-text">{{ log.study_time }}</p>
+            <p class="detail-value time-text">{{ log.study_time }}分</p>
         </div>
 
         <div class="detail-item">

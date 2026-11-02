@@ -7,8 +7,12 @@
     {% if logs %}
         <ul class="log-list">
         {% for log in logs %}
-            <li class="log-item">
-                <span class="log-title">{{ log.title }}</span>
+            <!-- カテゴリに応じたクラスを付与 (例: category-Flask, category-HTML など) -->
+            <li class="log-item category-{{ log.category | lower }}">
+                <div class="log-info">
+                    <span class="log-category-badge">{{ log.category }}</span>
+                    <span class="log-title">{{ log.title }}</span>
+                </div>
                 <a href="{{ url_for('logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
             </li>
         {% endfor %}
