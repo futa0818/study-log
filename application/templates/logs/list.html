@@ -34,7 +34,7 @@
                             nothing
                         {% endif %}
                     </span>
-                    <a href="{{ url_for('logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
+                    <a href="{{ url_for('main.logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
                 </div>
             </li>
         {% endfor %}
