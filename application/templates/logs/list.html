@@ -12,7 +12,6 @@
                     <span class="log-category-badge">{{ log.category }}</span>
                     <div class="log-title-wrapper">
                         <span class="log-title">{{ log.title }}</span>
-                        <!-- スマホ画面用：タイトルの右端・詳細ボタンの上に配置される日付 -->
                         <div class="log-meta-mobile">
                             <span class="log-date-text">
                                 {% if log.study_date %}
@@ -24,8 +23,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- PC画面用：「詳細を見る」ボタンのすぐ左に配置される日付 -->
                 <div class="log-actions-pc">
                     <span class="log-date-text">
                         {% if log.study_date %}
@@ -34,7 +31,7 @@
                             nothing
                         {% endif %}
                     </span>
-                    <a href="{{ url_for('main.logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
+                    <a href="{{ url_for('logs_bp.logs_detail', log_id=log.id) }}" class="btn-detail">詳細を見る</a>
                 </div>
             </li>
         {% endfor %}

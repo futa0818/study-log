@@ -7,7 +7,7 @@
         <p>学習の記録を残しましょう</p>
     </div>
 
-    <form action="/logs/new" method="POST" class="log-form-minimal">
+    <form action="/submit" method="POST" class="log-form-minimal">
         <div class="field-group">
             <label for="title">タイトル</label>
             <input type="text" id="title" name="title" class="input-minimal" placeholder="例: Python基礎の復習" required>
@@ -28,7 +28,6 @@
 
             <div class="field-group">
                 <label for="study_time">学習時間 (分)</label>
-                <!-- 5分刻みで入力できるように step="5" を設定 -->
                 <input type="number" id="study_time" name="study_time" class="input-minimal" step="5" min="0" placeholder="例: 60" required>
             </div>
 
